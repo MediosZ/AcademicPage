@@ -7,7 +7,6 @@ import formatDate from '@/lib/utils/formatDate'
 import Image from '@/components/Image'
 import parse from 'html-react-parser'
 
-
 export default function ListLayout({ pubs, title, initialDisplayPubs = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')
   const filteredPubs = pubs.filter((pub) => {
