@@ -58,7 +58,7 @@ export default function Home({ authorDetails, pubs, projs }) {
         >
           Lifeng Zhu
         </Link>
-        ,{' '}and Dr.{' '}
+        , and Dr.{' '}
         <Link
           target="_blank"
           className="text-inherit text-emerald-700 no-underline"
@@ -136,7 +136,9 @@ export default function Home({ authorDetails, pubs, projs }) {
                     <time dateTime={date}>{formatDate(date)}</time>
                   </div>
                 </div>
-                <div className="prose max-w-none text-gray-700 dark:text-gray-400">{parse(authors)}</div>
+                <div className="prose max-w-none text-gray-700 dark:text-gray-400">
+                  {parse(authors)}
+                </div>
                 <div className="text-gray-500 underline dark:text-gray-400">
                   {links.map(({ name, link }, idx) => (
                     <Link key={idx} href={link} className="pr-6 text-gray-900 dark:text-gray-100">
