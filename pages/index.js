@@ -11,6 +11,8 @@ import projectsData from '@/data/projectsData'
 import formatDate from '@/lib/utils/formatDate'
 import Tag from '@/components/Tag'
 const DEFAULT_LAYOUT = 'AuthorLayout'
+import parse from 'html-react-parser'
+import Image from '@/components/Image'
 
 export async function getStaticProps() {
   const authorDetails = await getFileBySlug('authors', ['default'])
@@ -40,21 +42,29 @@ export default function Home({ authorDetails, pubs, projs }) {
         >
           University of Hong Kong
         </Link>{' '}
-        supervised by postdoctoral fellow{' '}
+        with Prof.{' '}
         <Link
           target="_blank"
           className="text-inherit text-emerald-700 no-underline"
-          href="https://cong-yi.github.io/"
+          href="https://facdent.hku.hk/about/staff-profile.php?shortname=drgumin"
         >
-          Congyi Zhang
-        </Link>{' '}
-        and Prof.{' '}
+          Min Gu
+        </Link>
+        , Prof.{' '}
         <Link
           target="_blank"
           className="text-inherit text-emerald-700 no-underline"
           href="https://ins.seu.edu.cn/yk_english/2020/0219/c27542a317780/page.htm"
         >
           Lifeng Zhu
+        </Link>
+        ,{' '}and Dr.{' '}
+        <Link
+          target="_blank"
+          className="text-inherit text-emerald-700 no-underline"
+          href="https://cong-yi.github.io/"
+        >
+          Congyi Zhang
         </Link>
         . Before joining HKU, I received both my Master's degree and my B. Eng. degree from the{' '}
         <Link
@@ -76,6 +86,7 @@ export default function Home({ authorDetails, pubs, projs }) {
       </p>
       <p>
         Research interests: <span className="font-medium">Computer Graphics (CG)</span>,{' '}
+        <span className="font-medium">Computer Vision (CV)</span>,{' '}
         <span className="font-medium">Human Computer Interaction (HCI)</span>, and{' '}
         <span className="font-medium">Neural Implicit Representations</span>.
       </p>
@@ -100,25 +111,32 @@ export default function Home({ authorDetails, pubs, projs }) {
           )
         })}
       </div> */}
-      {/* <div>
-        <p className="mb-2 mt-10 text-2xl font-bold">Selected publications</p>
+      <div>
+        <p className="mb-2 mt-10 text-2xl font-bold">Publications</p>
         {pubs.map((pub, idx) => {
-          const { date, title, abstract, tags, links, imgSrc } = pub
+          const { date, title, abstract, authors, tags, links, imgSrc } = pub
           return (
             <div
               key={idx}
-              className="space-y-2 xl:grid xl:grid-cols-3 xl:items-baseline xl:space-y-0"
+              className="mb-6 space-y-2 xl:grid xl:grid-cols-3 xl:items-baseline xl:space-y-0"
             >
               <div className="xl:col-span-3">
                 <div>
                   <h3 className="my-0 text-xl font-medium leading-8 tracking-tight text-gray-900 dark:text-gray-100">
                     {title}
                   </h3>
-                  <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                  <Image
+                    className="object-contain object-center md:h-36 lg:h-48"
+                    alt={title}
+                    src={imgSrc}
+                    width={300}
+                    height={250}
+                  />
+                  <div className="text-base font-medium leading-6 text-gray-700 dark:text-gray-400">
                     <time dateTime={date}>{formatDate(date)}</time>
                   </div>
                 </div>
-                <div className="prose max-w-none text-gray-500 dark:text-gray-400">{abstract}</div>
+                <div className="prose max-w-none text-gray-700 dark:text-gray-400">{parse(authors)}</div>
                 <div className="text-gray-500 underline dark:text-gray-400">
                   {links.map(({ name, link }, idx) => (
                     <Link key={idx} href={link} className="pr-6 text-gray-900 dark:text-gray-100">
@@ -130,7 +148,7 @@ export default function Home({ authorDetails, pubs, projs }) {
             </div>
           )
         })}
-      </div> */}
+      </div>
     </div>
   )
   return (

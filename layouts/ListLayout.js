@@ -58,15 +58,15 @@ export default function ListLayout({ pubs, title, initialDisplayPubs = [], pagin
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <dl>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <dd className="mr-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>{formatDate(date)}</time>
-                      {/* <Image
-                        className="object-cover object-center md:h-36 lg:h-48"
+                      <Image
+                        className="object-contain object-center md:h-36 lg:h-48"
                         alt={title}
                         src={imgSrc}
-                        width={544}
-                        height={306}
-                      /> */}
+                        width={400}
+                        height={400}
+                      />
                     </dd>
                   </dl>
                   <div className="space-y-3 xl:col-span-3">
