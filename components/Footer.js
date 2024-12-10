@@ -21,7 +21,8 @@ export default function Footer() {
           <Link href="/">{siteMetadata.title}</Link> */}
         </div>
         <div className="mono-type mb-8 text-sm text-gray-500 dark:text-gray-400">
-          <Link href="/">Powered by enthusiasm and {'\u2764'} .</Link>
+          {/* <Link href="/">Powered by enthusiasm and {'\u2764'} .</Link> */}
+          <Link href="/">Enthusiasm and responsibility are the cure for fear and inertia</Link>
         </div>
       </div>
     </footer>

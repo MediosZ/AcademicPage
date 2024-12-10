@@ -86,9 +86,9 @@ export default function Home({ authorDetails, pubs, projs }) {
       </p>
       <p>
         Research interests: <span className="font-medium">Computer Graphics (CG)</span>,{' '}
-        <span className="font-medium">Computer Vision (CV)</span>,{' '}
-        <span className="font-medium">Human Computer Interaction (HCI)</span>, and{' '}
-        <span className="font-medium">Neural Implicit Representations</span>.
+        <span className="font-medium">Physics Simulation</span>,{' '}
+        <span className="font-medium">Robotics</span>,{' '}
+        <span className="font-medium">Human Computer Interaction (HCI)</span>.
       </p>
       {/* <div>
         <p className="mb-2 mt-10 text-2xl font-bold">Project Spotlights</p>
